@@ -4,8 +4,8 @@
     "windowsAuthentication": false, 
     "anonymousAuthentication": true, 
     "iisExpress": {
-      "applicationUrl": "http://localhost:51724",
-      "sslPort": 44395
+      "applicationUrl": "http://localhost:17915",
+      "sslPort": 44303
     }
   },
   "profiles": {
@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "SecretSantaApp": {
+    "SecretSantaApp.Api": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/values",
