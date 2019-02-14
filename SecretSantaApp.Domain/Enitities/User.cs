@@ -6,7 +6,7 @@ namespace SecretSantaApp.Domain.Enitities
     {
         public User()
         {
-            Groups = new HashSet<Group>();
+            GroupLinks = new HashSet<GroupMemberLink>();
             Lists = new HashSet<List>();
             SantaLists = new HashSet<List>();
         }
@@ -16,7 +16,8 @@ namespace SecretSantaApp.Domain.Enitities
         public string EmailAddress { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public ICollection<Group> Groups { get; set; }
+        public ICollection<Group> AdminOf { get; set; }
+        public ICollection<GroupMemberLink> GroupLinks { get; set; }
         public ICollection<List> Lists { get; set; }
         public ICollection<List> SantaLists { get; set; }
     }

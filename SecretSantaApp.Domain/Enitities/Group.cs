@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SecretSantaApp.Domain.Enitities
 {
@@ -7,7 +8,7 @@ namespace SecretSantaApp.Domain.Enitities
     {
         public Group()
         {
-            Members = new HashSet<User>();
+            MemberLinks = new HashSet<GroupMemberLink>();
             Lists = new HashSet<List>();
             Invites = new HashSet<Invite>();
         }
@@ -18,7 +19,7 @@ namespace SecretSantaApp.Domain.Enitities
         public DateTime ListDeadline { get; set; }
         public DateTime ExchangeTime { get; set; }
         public User Admin { get; set; }
-        public ICollection<User> Members { get; set; }
+        public ICollection<GroupMemberLink> MemberLinks { get; set; }
         public ICollection<List> Lists { get; set; }
         public ICollection<Invite> Invites { get; set; }
     }
