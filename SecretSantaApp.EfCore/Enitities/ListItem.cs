@@ -1,4 +1,4 @@
-﻿namespace SecretSantaApp.Domain.Enitities
+﻿namespace SecretSantaApp.EfCore.Enitities
 {
     public class ListItem
     {

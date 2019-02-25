@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SecretSantaApp.Domain.Enitities;
+using SecretSantaApp.EfCore.Enitities;
 
 namespace SecretSantaApp.EfCore
 {

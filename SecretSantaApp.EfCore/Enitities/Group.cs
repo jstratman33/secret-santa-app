@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SecretSantaApp.Domain.Enitities
+namespace SecretSantaApp.EfCore.Enitities
 {
     public class Group
     {
