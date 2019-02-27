@@ -30,5 +30,15 @@ namespace SecretSantaApp.EfCore.Repositories
         {
             return Context.Set<TEntity>().ToArray();
         }
+
+        public IEnumerable<TEntity> Where(Func<TEntity, bool> predicate)
+        {
+            return Context.Set<TEntity>().Where(predicate);
+        }
+
+        public TEntity First(Func<TEntity, bool> predicate)
+        {
+            return Context.Set<TEntity>().FirstOrDefault(predicate);
+        }
     }
 }
