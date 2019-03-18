@@ -10,6 +10,21 @@ namespace SecretSantaApp.EfCore.Repositories
         {
         }
 
+        public List Get(long id)
+        {
+            return Context.Lists.First(l => l.Id == id);
+        }
+
+        public List[] GetAllByUserId(long id)
+        {
+            return Context.Lists.Where(l => l.OwnerId == id).ToArray();
+        }
+
+        public List[] GetAllByGroupId(long id)
+        {
+            return Context.Lists.Where(l => l.GroupId == id).ToArray();
+        }
+
         public List[] GetAllByGroupId(long groupId)
         {
             return Context.Lists.Where(l => l.GroupId == groupId).ToArray();
