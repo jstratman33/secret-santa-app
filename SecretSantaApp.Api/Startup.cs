@@ -26,6 +26,12 @@ namespace SecretSantaApp.Api
             services.AddDbContext<SecretSantaContext>(options => options.UseSqlServer(connectionString));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            services.AddAuthentication().AddFacebook(facebookOptions =>
+            {
+                facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+                facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+            });
+
             services.AddScoped<IGroupMemberLinkRepository, GroupMemberLinkRepository>();
             services.AddScoped<IGroupRepository, GroupRepository>();
             services.AddScoped<IInviteRepository, InviteRespository>();
