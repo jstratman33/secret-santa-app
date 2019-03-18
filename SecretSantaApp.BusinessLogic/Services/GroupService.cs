@@ -1,14 +1,14 @@
 ﻿using System.Linq;
 using SecretSantaApp.EfCore.Enitities;
-using SecretSantaApp.EfCore.Repositories;
+using SecretSantaApp.EfCore.Interfaces;
 
 namespace SecretSantaApp.BusinessLogic.Services
 {
     public class GroupService
     {
-        private readonly GroupRepository _groupRepository;
+        private readonly IGroupRepository _groupRepository;
 
-        public GroupService(GroupRepository groupRepository)
+        public GroupService(IGroupRepository groupRepository)
         {
             _groupRepository = groupRepository;
         }

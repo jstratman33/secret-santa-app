@@ -1,9 +1,10 @@
 ﻿using System.Linq;
 using SecretSantaApp.EfCore.Enitities;
+using SecretSantaApp.EfCore.Interfaces;
 
 namespace SecretSantaApp.EfCore.Repositories
 {
-    public class GroupRepository : Repository<Group>
+    public class GroupRepository : Repository<Group>, IGroupRepository
     {
         public GroupRepository(SecretSantaContext context) : base(context)
         {

@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SecretSantaApp.EfCore.Interfaces;
 
 namespace SecretSantaApp.EfCore.Repositories
 {
-    public class Repository<TEntity> where TEntity : class 
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class 
     {
         protected SecretSantaContext Context { get; }
 

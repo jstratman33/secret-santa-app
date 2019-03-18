@@ -1,17 +1,17 @@
 ﻿using System.Linq;
 using SecretSantaApp.EfCore.Enitities;
-using SecretSantaApp.EfCore.Repositories;
+using SecretSantaApp.EfCore.Interfaces;
 
 namespace SecretSantaApp.BusinessLogic.Services
 {
     public class UserService : BaseService
     {
-        private readonly UserRepository _userRepository;
+        private readonly IUserRepository _userRepository;
 
-        public UserService()
+        public UserService(IUserRepository userRepository)
         {
 
-            _userRepository = new UserRepository();
+            _userRepository = userRepository;
         }
 
         public void Create(User user)

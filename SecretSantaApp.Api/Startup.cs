@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SecretSantaApp.EfCore;
+using SecretSantaApp.EfCore.Interfaces;
+using SecretSantaApp.EfCore.Repositories;
 
 namespace SecretSantaApp.Api
 {
@@ -21,9 +23,15 @@ namespace SecretSantaApp.Api
         public void ConfigureServices(IServiceCollection services)
         {
             var connectionString = Configuration["secretSantaConnection"];
-            services.AddDbContext<SecretSantaContext>(
-                options => options.UseSqlServer(connectionString));
+            services.AddDbContext<SecretSantaContext>(options => options.UseSqlServer(connectionString));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddScoped<IGroupMemberLinkRepository, GroupMemberLinkRepository>();
+            services.AddScoped<IGroupRepository, GroupRepository>();
+            services.AddScoped<IInviteRepository, InviteRespository>();
+            services.AddScoped<IListItemRepository, ListItemRepository>();
+            services.AddScoped<IListRepository, ListRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

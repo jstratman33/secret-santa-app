@@ -7,7 +7,6 @@ namespace SecretSantaApp.EfCore
     {
         public SecretSantaContext(DbContextOptions options) : base(options)
         {
-
         }
 
         public DbSet<Group> Groups { get; set; }
