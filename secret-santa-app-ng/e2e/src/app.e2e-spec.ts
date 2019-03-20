@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('secret-santa-app-ng App', () => {
+describe('workspace-project App', () => {
   let page: AppPage;
 
   beforeEach(() => {
@@ -9,6 +9,6 @@ describe('secret-santa-app-ng App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getParagraphText()).toEqual('Welcome to secret-santa-app-ng!');
   });
 });
