@@ -41,5 +41,10 @@ namespace SecretSantaApp.EfCore.Repositories
         {
             return Context.Set<TEntity>().FirstOrDefault(predicate);
         }
+
+        public void SaveChanges()
+        {
+            Context.SaveChanges();
+        }
     }
 }

@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SecretSantaApp.BusinessLogic.Services;
+using SecretSantaApp.BusinessLogic.Services.Interfaces;
 using SecretSantaApp.EfCore;
 using SecretSantaApp.EfCore.Interfaces;
 using SecretSantaApp.EfCore.Repositories;
@@ -38,6 +40,7 @@ namespace SecretSantaApp.Api
             services.AddScoped<IListItemRepository, ListItemRepository>();
             services.AddScoped<IListRepository, ListRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
