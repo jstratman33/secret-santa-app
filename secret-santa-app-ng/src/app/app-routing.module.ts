@@ -2,6 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
+import { CreateEventComponentComponent } from './create-event-component/create-event-component.component';
+import { CreateListComponent } from './create-list/create-list.component';
+import { CreateKidListComponent } from './create-kid-list/create-kid-list.component';
+import { ViewListComponent } from './view-list/view-list.component';
+import { ViewSantaComponent } from './view-santa/view-santa.component';
+import { EditListComponent } from './edit-list/edit-list.component';
 
 const routes: Routes = [
   {
@@ -15,6 +21,30 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent
+  },
+  {
+    path: 'create_event',
+    component: CreateEventComponentComponent
+  },
+  {
+    path: 'create_list',
+    component: CreateListComponent
+  },
+  {
+    path: 'create_kid_list',
+    component: CreateKidListComponent
+  },
+  {
+    path: 'view_list',
+    component: ViewListComponent
+  },
+  {
+    path: 'view_santa',
+    component: ViewSantaComponent
+  },
+  {
+    path: 'edit_list',
+    component: EditListComponent
   }
 ];
 

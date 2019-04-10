@@ -7,6 +7,12 @@ import { GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider} from
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CreateEventComponentComponent } from './create-event-component/create-event-component.component';
+import { CreateListComponent } from './create-list/create-list.component';
+import { CreateKidListComponent } from './create-kid-list/create-kid-list.component';
+import { ViewListComponent } from './view-list/view-list.component';
+import { ViewSantaComponent } from './view-santa/view-santa.component';
+import { EditListComponent } from './edit-list/edit-list.component';
 
 const config = new AuthServiceConfig([
   {
@@ -31,7 +37,13 @@ export function provideConfig() {
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    CreateEventComponentComponent,
+    CreateListComponent,
+    CreateKidListComponent,
+    ViewListComponent,
+    ViewSantaComponent,
+    EditListComponent
   ],
   imports: [
     BrowserModule,
