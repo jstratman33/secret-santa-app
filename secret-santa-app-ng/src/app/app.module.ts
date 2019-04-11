@@ -3,10 +3,11 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { SocialLoginModule, AuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider} from 'angularx-social-login';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserService } from './services/user.service';
 
 const config = new AuthServiceConfig([
   {
@@ -36,13 +37,15 @@ export function provideConfig() {
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     SocialLoginModule
   ],
   providers: [
     {
       provide: AuthServiceConfig,
       useFactory: provideConfig
-    }
+    },
+    UserService
   ],
   bootstrap: [AppComponent]
 })

@@ -10,5 +10,6 @@ namespace SecretSantaApp.EfCore.Interfaces
         IEnumerable<TEntity> GetAll();
         IEnumerable<TEntity> Where(Func<TEntity, bool> predicate);
         TEntity First(Func<TEntity, bool> predicate);
+        void SaveChanges();
     }
 }

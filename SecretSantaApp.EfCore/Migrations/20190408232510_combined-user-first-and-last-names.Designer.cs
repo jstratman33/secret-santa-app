@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SecretSantaApp.EfCore;
 
 namespace SecretSantaApp.EfCore.Migrations
 {
     [DbContext(typeof(SecretSantaContext))]
-    partial class SecretSantaContextModelSnapshot : ModelSnapshot
+    [Migration("20190408232510_combined-user-first-and-last-names")]
+    partial class combineduserfirstandlastnames
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
