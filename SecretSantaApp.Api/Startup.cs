@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SecretSantaApp.BusinessLogic.Services;
+using SecretSantaApp.BusinessLogic.Services.Interfaces;
 using SecretSantaApp.EfCore;
 using SecretSantaApp.EfCore.Interfaces;
 using SecretSantaApp.EfCore.Repositories;
@@ -22,7 +24,8 @@ namespace SecretSantaApp.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionString = Configuration["secretSantaConnection"];
+            services.AddCors();
+            var connectionString = Configuration["ConnectionStrings:secretSantaConnection"];
             services.AddDbContext<SecretSantaContext>(options => options.UseSqlServer(connectionString));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
@@ -38,6 +41,8 @@ namespace SecretSantaApp.Api
             services.AddScoped<IListItemRepository, ListItemRepository>();
             services.AddScoped<IListRepository, ListRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IGroupService, GroupService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +58,11 @@ namespace SecretSantaApp.Api
                 app.UseHsts();
             }
 
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials());
             app.UseHttpsRedirection();
             app.UseMvc();
         }

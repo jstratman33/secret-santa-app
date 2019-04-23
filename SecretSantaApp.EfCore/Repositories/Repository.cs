@@ -14,17 +14,19 @@ namespace SecretSantaApp.EfCore.Repositories
             Context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public void Create(TEntity entity)
+        public virtual void Create(TEntity entity)
         {
             if (entity == null) throw new ArgumentNullException(nameof(entity));
             Context.Set<TEntity>().Add(entity);
+            Context.SaveChanges();
         }
 
-        public void Delete(TEntity entity)
+        public virtual void Delete(TEntity entity)
         {
             if (entity == null) throw new ArgumentNullException(nameof(entity));
             Context.Set<TEntity>().Attach(entity);
             Context.Set<TEntity>().Remove(entity);
+            Context.SaveChanges();
         }
 
         public IEnumerable<TEntity> GetAll()
@@ -40,6 +42,11 @@ namespace SecretSantaApp.EfCore.Repositories
         public TEntity First(Func<TEntity, bool> predicate)
         {
             return Context.Set<TEntity>().FirstOrDefault(predicate);
+        }
+
+        public void SaveChanges()
+        {
+            Context.SaveChanges();
         }
     }
 }
