@@ -1,3 +1,28 @@
-<p>
-  create-event-component works!
-</p>
+<style>
+.content {
+  max-width: 300px;
+  margin: auto;
+}
+</style>
+<body>
+<div class="content">
+  <p>
+    Create Event
+  </p>
+  <p>
+
+  </p>
+
+  Event Title:<br>
+  <input type="text" name="event title"><br>
+  Event Date:<br>
+  <input type="date" name="event date"><br>
+  List Deadline:<br>
+  <input type="date" name="list deadline"><br>
+  Invite:<br>
+  <div *ngFor="let member of Members">
+  <input type="email" name="email invite"><br>
+  </div>
+  <button (click)="AddMember()"> Add Member </button>
+</div>
+</body>

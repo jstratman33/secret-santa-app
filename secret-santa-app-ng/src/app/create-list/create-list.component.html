@@ -1,3 +1,31 @@
-<p>
-  create-list works!
-</p>
+<style>
+.content {
+  max-width: 300px;
+  margin: auto;
+}
+</style>
+<body>
+<div class="content">
+  <p>
+    <h1>Create Wish List</h1>
+  </p>
+
+  <p>
+    *User* Wish List
+  </p>
+
+  Wish List:<br>
+  <div *ngFor="let member of WishList">
+  <input type="text" name="wish list item"><br>
+  </div>
+  <p>
+
+  </p>
+  <button (click)="AddList()"> Add Item </button>
+
+  <p>
+
+  </p>
+  <button> Submit </button>
+</div>
+</body>
