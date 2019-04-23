@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserService } from './services/user.service';
+import { TestComponent } from './test/test.component';
 
 const config = new AuthServiceConfig([
   {
@@ -32,7 +33,8 @@ export function provideConfig() {
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,

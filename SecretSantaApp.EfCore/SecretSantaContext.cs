@@ -14,6 +14,7 @@ namespace SecretSantaApp.EfCore
         public DbSet<List> Lists { get; set; }
         public DbSet<ListItem> ListItems { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<GroupMemberLink> GroupMemberLinks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
