@@ -25,7 +25,7 @@ namespace SecretSantaApp.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            var connectionString = Configuration["secretSantaConnection"];
+            var connectionString = Configuration["ConnectionStrings:secretSantaConnection"];
             services.AddDbContext<SecretSantaContext>(options => options.UseSqlServer(connectionString));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'https://localhost:44303'
+  apiBaseUrl: 'https://secretsantaappapi.azurewebsites.net'
 };
 
 /*
