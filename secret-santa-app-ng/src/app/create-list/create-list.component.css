@@ -1,0 +1,12 @@
+body {
+    color: blue;
+  }
+  
+h1 {
+    color: rgb(128, 0, 0);
+    font-size: 40px;
+}  
+
+p {
+    font-size: 30px;
+}

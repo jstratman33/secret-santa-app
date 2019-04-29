@@ -1,8 +1,58 @@
-<p>
-  login works!
-</p>
-<div class="row justify-content-md-center">
-  <div class="col-md-4">
-    <button class="btn btn-info btn-lg" (click)="signInWithFB()"><i class="fab fa-facebook"></i> &nbsp; Login with Facebook</button>
+<style>
+.content {
+  max-width: 300px;
+  margin: auto;
+}
+</style>
+<body>
+
+<div class="content">
+
+    <p>
+
+    </p>
+    <img src="http://clipart-library.com/img1/1500784.jpg" alt="SecretSantaSticker" width="250" height="250">
+    <p>
+      
+    </p>
+    
+    <p>
+      Welcome to the login page!
+    </p>
+    
+    <p>
+    
+    </p>
+
+    <p>
+
+    </p>
+
+    <script>
+        var finished_rendering = function() {
+          console.log("finished rendering plugins");
+          var spinner = document.getElementById("spinner");
+          spinner.removeAttribute("style");
+          spinner.removeChild(spinner.childNodes[0]);
+        }
+        FB.Event.subscribe('xfbml.render', finished_rendering);
+    </script>
+    <div id="spinner"
+    style="
+        background: #4267b2;
+        border-radius: 5px;
+        color: white;
+        height: 40px;
+        text-align: center;
+        width: 250px;">
+    
+    <div
+    class="fb-login-button"
+    data-max-rows="1"
+    data-size="large"
+    data-button-type="continue_with"
+    data-use-continue-as="true"
+    (click)="signInWithFB()"></div>
   </div>
 </div>
+</body>
