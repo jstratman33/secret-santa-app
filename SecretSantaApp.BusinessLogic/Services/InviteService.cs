@@ -41,7 +41,7 @@ namespace SecretSantaApp.BusinessLogic.Services
             using (var client = new SmtpClient("smtp.gmail.com", 587))
             {
                 client.UseDefaultCredentials = false;
-                client.Credentials = new NetworkCredential("secretsantacpt200@gmail.com", "PmWvJ3FhKf4a");
+                client.Credentials = new NetworkCredential("secretsantacpt200@gmail.com", "");
                 client.EnableSsl = true;
                 client.Send(message);
             }

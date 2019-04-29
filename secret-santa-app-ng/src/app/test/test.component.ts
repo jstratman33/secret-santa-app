@@ -96,7 +96,7 @@ export class TestComponent implements OnInit {
   }
 
   deleteInvite(): void {
-    const id = 0;
+    const id = 3;
     this.inviteService.delete(id).subscribe(res => {
       console.log(JSON.stringify(res));
     });
