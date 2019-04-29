@@ -47,12 +47,12 @@ namespace SecretSantaApp.Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetByEmailAndHash(string emailAddress, string hash)
+        public IActionResult GetByEmailAndHash(string email, string hash)
         {
             try
             {
-                _inviteService.GetByEmailAndHash(emailAddress, hash);
-                return Ok();
+                var invite = _inviteService.GetByEmailAndHash(email, hash);
+                return Ok(invite);
             }
             catch (Exception ex)
             {

@@ -35,7 +35,7 @@ namespace SecretSantaApp.BusinessLogic.Services
             message.From = new MailAddress("secretsantacpt200@gmail.com");
             message.To.Add(invite.EmailAddress);
             message.Body =
-                $"You have been invited to a Secret Santa group! http://localhost:4200/invites?email={invite.EmailAddress}&hash={invite.Hash}";
+                $"You have been invited to a Secret Santa group! http://localhost:4200/invite?email={invite.EmailAddress}&hash={invite.Hash}";
             message.IsBodyHtml = true;
             message.Subject = "Secret Santa Group Invitation";
             using (var client = new SmtpClient("smtp.gmail.com", 587))

@@ -9,6 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserService } from './services/user.service';
 import { TestComponent } from './test/test.component';
+import { GroupService } from './services/group.service';
+import { InviteService } from './services/invite.service';
 
 const config = new AuthServiceConfig([
   {
@@ -47,7 +49,9 @@ export function provideConfig() {
       provide: AuthServiceConfig,
       useFactory: provideConfig
     },
-    UserService
+    UserService,
+    GroupService,
+    InviteService
   ],
   bootstrap: [AppComponent]
 })
