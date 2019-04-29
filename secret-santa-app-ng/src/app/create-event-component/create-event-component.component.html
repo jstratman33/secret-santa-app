@@ -14,15 +14,16 @@
   </p>
 
   Event Title:<br>
-  <input type="text" name="event title"><br>
+  <input type="text" name="event title" [(ngModel)]="EventTitle"><br>
   Event Date:<br>
-  <input type="date" name="event date"><br>
+  <input type="text" name="event date" [(ngModel)]="ExchangeTime"><br>
   List Deadline:<br>
-  <input type="date" name="list deadline"><br>
+  <input type="text" name="list deadline" [(ngModel)]="ListDeadline"><br>
   Invite:<br>
   <div *ngFor="let member of Members">
-  <input type="email" name="email invite"><br>
+  <input type="email" name="emailinvite_{{member.id}}" [(ngModel)]="member.email"><br>
   </div>
   <button (click)="AddMember()"> Add Member </button>
+  <button (click)="SubmitForm()"> Submit </button>
 </div>
 </body>
