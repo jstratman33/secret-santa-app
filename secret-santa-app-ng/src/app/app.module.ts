@@ -7,6 +7,10 @@ import { GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider} from
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserService } from './services/user.service';
+import { TestComponent } from './test/test.component';
+import { GroupService } from './services/group.service';
+import { InviteService } from './services/invite.service';
 import { CreateEventComponentComponent } from './create-event-component/create-event-component.component';
 import { CreateListComponent } from './create-list/create-list.component';
 import { CreateKidListComponent } from './create-kid-list/create-kid-list.component';
@@ -60,7 +64,9 @@ export function provideConfig() {
       provide: AuthServiceConfig,
       useFactory: provideConfig
     },
-    GroupService
+    UserService,
+    GroupService,
+    InviteService
   ],
   bootstrap: [AppComponent]
 })
