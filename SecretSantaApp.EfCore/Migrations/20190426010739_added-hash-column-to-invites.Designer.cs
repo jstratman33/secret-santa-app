@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SecretSantaApp.EfCore;
 
 namespace SecretSantaApp.EfCore.Migrations
 {
     [DbContext(typeof(SecretSantaContext))]
-    partial class SecretSantaContextModelSnapshot : ModelSnapshot
+    [Migration("20190426010739_added-hash-column-to-invites")]
+    partial class addedhashcolumntoinvites
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -63,7 +65,7 @@ namespace SecretSantaApp.EfCore.Migrations
 
                     b.Property<long>("GroupId");
 
-                    b.Property<string>("Hash");
+                    b.Property<byte[]>("Hash");
 
                     b.HasKey("Id");
 
