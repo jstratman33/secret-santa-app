@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { GroupService } from '../services/group.service';
+import { InviteService } from '../services/invite.service';
 import { Group } from '../models/group';
+import { Invite } from '../models/invite';
 
 @Component({
   selector: 'app-create-event-component',
@@ -13,7 +15,8 @@ export class CreateEventComponentComponent implements OnInit {
   private EventTitle: string="";
   private ListDeadline: string="";
   private ExchangeTime: string="";
-  constructor(private GroupService: GroupService) {
+  constructor(private InviteService: InviteService,
+    private GroupService: GroupService) {
     this.AddMember();
    }
 
@@ -38,6 +41,17 @@ export class CreateEventComponentComponent implements OnInit {
     console.log(JSON.stringify(Event));
     this.GroupService.create(Event).subscribe(res => {
       console.log(JSON.stringify(res));
+    });
+    this.Members.forEach(x=>{
+      const Invite: Invite={
+        id: 0,
+        groupId: 4, //add return groupId later
+        emailAddress: x.email,
+        hash: ""
+      };
+      this.InviteService.create(Invite).subscribe(res => {
+        console.log(JSON.stringify(res));
+      });
     });
   }
 }

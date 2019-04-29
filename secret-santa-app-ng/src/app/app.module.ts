@@ -17,7 +17,6 @@ import { CreateKidListComponent } from './create-kid-list/create-kid-list.compon
 import { ViewListComponent } from './view-list/view-list.component';
 import { ViewSantaComponent } from './view-santa/view-santa.component';
 import { EditListComponent } from './edit-list/edit-list.component';
-import { GroupService } from './services/group.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
