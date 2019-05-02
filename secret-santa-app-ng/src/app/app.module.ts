@@ -49,7 +49,8 @@ export function provideConfig() {
     CreateKidListComponent,
     ViewListComponent,
     ViewSantaComponent,
-    EditListComponent
+    EditListComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
