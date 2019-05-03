@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { GroupService } from 'c:/Users/sward_000/Documents/SecretSantaWorkspace/secret-santa-app-ng/src/app/services/group.service';
+import { Group } from 'c:/Users/sward_000/Documents/SecretSantaWorkspace/secret-santa-app-ng/src/app/models/group';
+import { List } from '../models/list';
 
 @Component({
   selector: 'app-create-list',
@@ -7,12 +10,25 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./create-list.component.css']
 })
 export class CreateListComponent implements OnInit {
-  private WishList: string[] = [""];
-  constructor() { }
+  private WishList=[];
+  constructor(private GroupService: GroupService) {
+    this.AddList();
+   }
 
   ngOnInit() {
   }
   AddList(): void{
-    this.WishList.push("");
+    this.WishList.push({
+      id: Date.now(),
+      item: ""
+    });
+  }
+  SubmitForm(): void{
+    this.WishList.forEach(x=>{
+      const Items: List={
+        id: 0,
+        item: ""
+      };
+    });
   }
 }
