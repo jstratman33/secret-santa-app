@@ -8,7 +8,6 @@ namespace SecretSantaApp.EfCore.Enitities
         {
             GroupLinks = new HashSet<GroupMemberLink>();
             Lists = new HashSet<List>();
-            SantaLists = new HashSet<List>();
         }
 
         public long Id { get; set; }
@@ -18,6 +17,5 @@ namespace SecretSantaApp.EfCore.Enitities
         public ICollection<Group> AdminOf { get; set; }
         public ICollection<GroupMemberLink> GroupLinks { get; set; }
         public ICollection<List> Lists { get; set; }
-        public ICollection<List> SantaLists { get; set; }
     }
 }

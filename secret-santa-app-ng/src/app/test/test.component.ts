@@ -3,6 +3,8 @@ import { GroupService } from '../services/group.service';
 import { Group } from '../models/group';
 import { Invite } from '../models/invite';
 import { InviteService } from '../services/invite.service';
+import { ListService } from '../services/list.service';
+import { List } from '../models/list';
 
 @Component({
   selector: 'app-test',
@@ -11,9 +13,16 @@ import { InviteService } from '../services/invite.service';
 })
 export class TestComponent implements OnInit {
 
+  userId = 2;
+  groupId = 7;
+  inviteId = 0;
+  listId = 0;
+  itemId = 0;
+
   constructor(
     private groupService: GroupService,
-    private inviteService: InviteService) { }
+    private inviteService: InviteService,
+    private listService: ListService) { }
 
   ngOnInit() {
   }
@@ -21,7 +30,7 @@ export class TestComponent implements OnInit {
   createGroup(): void {
     const group: Group = {
       id: 0,
-      adminId: 2,
+      adminId: this.userId,
       description: 'Angular Test Group',
       listDeadline: '2019-05-01',
       exchangeTime: '2019-05-02'
@@ -32,21 +41,21 @@ export class TestComponent implements OnInit {
   }
 
   getAllGroups(): void {
-    this.groupService.getAllByUserId(2).subscribe(res => {
+    this.groupService.getAllByUserId(this.userId).subscribe(res => {
       console.log(JSON.stringify(res));
     });
   }
 
   getOneGroup(): void {
-    this.groupService.getOne(6).subscribe(res => {
+    this.groupService.getOne(this.groupId).subscribe(res => {
       console.log(JSON.stringify(res));
     });
   }
 
   updateGroup(): void {
     const group: Group = {
-      id: 6,
-      adminId: 2,
+      id: this.groupId,
+      adminId: this.userId,
       description: 'updated Test Group',
       listDeadline: '2019-05-15',
       exchangeTime: '2019-05-18'
@@ -57,8 +66,7 @@ export class TestComponent implements OnInit {
   }
 
   deleteGroup(): void {
-    const id: number = 6;
-    this.groupService.delete(id).subscribe(res => {
+    this.groupService.delete(this.groupId).subscribe(res => {
       console.log(JSON.stringify(res));
     });
   }
@@ -66,7 +74,7 @@ export class TestComponent implements OnInit {
   createInvite(): void {
     const invite: Invite = {
       id: 0,
-      groupId: 4,
+      groupId: this.groupId,
       emailAddress: 'stratmanmedia@gmail.com',
       hash: ''
     };
@@ -78,7 +86,7 @@ export class TestComponent implements OnInit {
   sendInvite(): void {
     const invite: Invite = {
       id: 0,
-      groupId: 4,
+      groupId: this.groupId,
       emailAddress: 'stratmanmedia@gmail.com',
       hash: ''
     };
@@ -96,8 +104,87 @@ export class TestComponent implements OnInit {
   }
 
   deleteInvite(): void {
-    const id = 3;
-    this.inviteService.delete(id).subscribe(res => {
+    this.inviteService.delete(this.inviteId).subscribe(res => {
+      console.log(JSON.stringify(res));
+    });
+  }
+
+  createList(): void {
+    const list: List = {
+      id: 0,
+      ownerId: this.userId,
+      santaId: 0,
+      groupId: this.groupId,
+      name: 'Jason\'s Wish List',
+      isPrimary: true,
+      items: [
+        {
+          id: 0,
+          listId: 0,
+          description: '60 inch OLED 4K HDR TV',
+          isPurchased: false
+        },
+        {
+          id: 0,
+          listId: 0,
+          description: 'ASUS ROG 17 inch Laptop',
+          isPurchased: false
+        }
+      ]
+    };
+    this.listService.create(list).subscribe(res => {
+      console.log(JSON.stringify(res));
+    });
+  }
+
+  getOneList(): void {
+    this.listService.getOne(this.listId).subscribe(res => {
+      console.log(JSON.stringify(res));
+    });
+  }
+
+  getAllListsForGroup(): void {
+    this.listService.getAllByGroupId(this.groupId).subscribe(res => {
+      console.log(JSON.stringify(res));
+    });
+  }
+
+  getAllListsForOwner(): void {
+    this.listService.getAllByOwnerId(this.userId).subscribe(res => {
+      console.log(JSON.stringify(res));
+    });
+  }
+
+  updateList(): void {
+    const list: List = {
+      id: this.listId,
+      ownerId: this.userId,
+      santaId: 0,
+      groupId: this.groupId,
+      name: 'Jason\'s TEST Wish List',
+      isPrimary: true,
+      items: [
+        {
+          id: this.itemId,
+          listId: this.listId,
+          description: 'TEST 60 inch OLED 4K HDR TV',
+          isPurchased: true
+        },
+        {
+          id: 0,
+          listId: this.listId,
+          description: 'Gibson Acoustic Guitar',
+          isPurchased: false
+        }
+      ]
+    };
+    this.listService.update(list).subscribe(res => {
+      console.log(JSON.stringify(res));
+    });
+  }
+
+  deleteList(): void {
+    this.listService.delete(this.listId).subscribe(res => {
       console.log(JSON.stringify(res));
     });
   }
