@@ -16,7 +16,6 @@ namespace SecretSantaApp.EfCore.Enitities
         public string Name { get; set; }
         public bool IsPrimary { get; set; }
         public User Owner { get; set; }
-        public User Santa { get; set; }
         public Group Group { get; set; }
         public ICollection<ListItem> Items { get; set; }
     }

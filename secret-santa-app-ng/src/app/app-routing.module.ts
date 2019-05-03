@@ -8,11 +8,16 @@ import { CreateKidListComponent } from './create-kid-list/create-kid-list.compon
 import { ViewListComponent } from './view-list/view-list.component';
 import { ViewSantaComponent } from './view-santa/view-santa.component';
 import { EditListComponent } from './edit-list/edit-list.component';
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
   {
     path: '',
     component: LoginComponent
+  },
+  {
+    path: 'test',
+    component: TestComponent
   },
   {
     path: 'login',

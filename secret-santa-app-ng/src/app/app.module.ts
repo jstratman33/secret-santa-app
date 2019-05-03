@@ -19,6 +19,7 @@ import { ViewSantaComponent } from './view-santa/view-santa.component';
 import { EditListComponent } from './edit-list/edit-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ListService } from './services/list.service';
 
 const config = new AuthServiceConfig([
   {
@@ -42,6 +43,7 @@ export function provideConfig() {
 @NgModule({
   declarations: [
     AppComponent,
+    TestComponent,
     LoginComponent,
     DashboardComponent,
     CreateEventComponentComponent,
@@ -65,7 +67,8 @@ export function provideConfig() {
     },
     UserService,
     GroupService,
-    InviteService
+    InviteService,
+    ListService
   ],
   bootstrap: [AppComponent]
 })

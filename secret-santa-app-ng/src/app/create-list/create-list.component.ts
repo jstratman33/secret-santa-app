@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { GroupService } from 'c:/Users/sward_000/Documents/SecretSantaWorkspace/secret-santa-app-ng/src/app/services/group.service';
-import { Group } from 'c:/Users/sward_000/Documents/SecretSantaWorkspace/secret-santa-app-ng/src/app/models/group';
+import { GroupService } from '../services/group.service';
+import { Group } from '../models/group';
 import { List } from '../models/list';
 
 @Component({
@@ -18,17 +18,17 @@ export class CreateListComponent implements OnInit {
   ngOnInit() {
   }
   AddList(): void{
-    this.WishList.push({
-      id: Date.now(),
-      item: ""
-    });
+    // this.WishList.push({
+    //   id: Date.now(),
+    //   item: ""
+    // });
   }
   SubmitForm(): void{
-    this.WishList.forEach(x=>{
-      const Items: List={
-        id: 0,
-        item: ""
-      };
-    });
+    // this.WishList.forEach(x=>{
+    //   const Items: List={
+    //     id: 0,
+    //     item: ""
+    //   };
+    // });
   }
 }
