@@ -35,8 +35,6 @@ namespace SecretSantaApp.EfCore
             modelBuilder.Entity<List>().HasKey(e => e.Id);
             modelBuilder.Entity<List>().HasOne(e => e.Owner).WithMany(e => e.Lists).HasForeignKey(e => e.OwnerId)
                 .OnDelete(DeleteBehavior.Restrict);
-            modelBuilder.Entity<List>().HasOne(e => e.Santa).WithMany(e => e.SantaLists).HasForeignKey(e => e.SantaId)
-                .OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<List>().HasOne(e => e.Group).WithMany(e => e.Lists).HasForeignKey(e => e.GroupId)
                 .OnDelete(DeleteBehavior.Restrict);
 

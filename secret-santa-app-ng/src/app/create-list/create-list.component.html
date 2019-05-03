@@ -7,18 +7,15 @@
 <body>
 <div class="content">
   <h1>
-    Create List Page
-  </h1>
-
-  <p>
-    *User* Wish List
-  </p>
+    Create List Page:
+  </h1> 
+  
+  <br>
 
   Wish List:<br>
   <div *ngFor="let member of WishList">
-  <input type="text" name="wish list item"><br>
+  <input type="text" name="wishlistitem_{{member.id}}" [(ngModel)]="member.item"><br>
   </div>
-
   <button (click)="AddList()"> Add Item </button>
 
   <p>
