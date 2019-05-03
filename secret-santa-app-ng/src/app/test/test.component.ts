@@ -16,8 +16,8 @@ export class TestComponent implements OnInit {
   userId = 2;
   groupId = 7;
   inviteId = 0;
-  listId = 0;
-  itemId = 0;
+  listId = 12;
+  itemId = 26;
 
   constructor(
     private groupService: GroupService,

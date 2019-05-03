@@ -25,7 +25,7 @@ namespace SecretSantaApp.Api.Controllers
             try
             {
                 _listService.Create(list);
-                return Ok("Successful");
+                return Ok(new { Message = "Successful" });
             }
             catch (Exception ex)
             {
@@ -99,7 +99,7 @@ namespace SecretSantaApp.Api.Controllers
             try
             {
                 _listService.Update(list);
-                return Ok("Successful");
+                return Ok(new { Message = "Successful" });
             }
             catch (Exception ex)
             {
@@ -114,7 +114,7 @@ namespace SecretSantaApp.Api.Controllers
             try
             {
                 _listService.Delete(id);
-                return Ok("Successful");
+                return Ok(new { Message = "Successful" });
             }
             catch (Exception ex)
             {
