@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SecretSantaApp.EfCore;
 
 namespace SecretSantaApp.EfCore.Migrations
 {
     [DbContext(typeof(SecretSantaContext))]
-    partial class SecretSantaContextModelSnapshot : ModelSnapshot
+    [Migration("20190502223926_removed-santa-fk")]
+    partial class removedsantafk
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -94,6 +96,8 @@ namespace SecretSantaApp.EfCore.Migrations
 
                     b.HasIndex("OwnerId");
 
+                    b.HasIndex("SantaId");
+
                     b.ToTable("Lists");
                 });
 
@@ -173,6 +177,11 @@ namespace SecretSantaApp.EfCore.Migrations
                         .WithMany("Lists")
                         .HasForeignKey("OwnerId")
                         .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("SecretSantaApp.EfCore.Enitities.User", "Santa")
+                        .WithMany("SantaLists")
+                        .HasForeignKey("SantaId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("SecretSantaApp.EfCore.Enitities.ListItem", b =>

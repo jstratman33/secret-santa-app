@@ -26,8 +26,12 @@ namespace SecretSantaApp.Api
         {
             services.AddCors();
             var connectionString = Configuration["ConnectionStrings:secretSantaConnection"];
-            services.AddDbContext<SecretSantaContext>(options => options.UseSqlServer(connectionString));
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddDbContext<SecretSantaContext>(options =>
+            {
+                options.UseSqlServer(connectionString);
+            });
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddAuthentication().AddFacebook(facebookOptions =>
             {
@@ -44,6 +48,7 @@ namespace SecretSantaApp.Api
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IGroupService, GroupService>();
             services.AddScoped<IInviteService, InviteService>();
+            services.AddScoped<IListService, ListService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using SecretSantaApp.EfCore.Enitities;
 using SecretSantaApp.EfCore.Interfaces;
 
@@ -12,17 +13,23 @@ namespace SecretSantaApp.EfCore.Repositories
 
         public List Get(long id)
         {
-            return Context.Lists.First(l => l.Id == id);
+            return Context.Lists
+                .Include(x => x.Items)
+                .First(l => l.Id == id);
         }
 
-        public List[] GetAllByUserId(long id)
+        public List[] GetAllByOwnerId(long ownerId)
         {
-            return Context.Lists.Where(l => l.OwnerId == id).ToArray();
+            return Context.Lists
+                .Include(x => x.Items)
+                .Where(l => l.OwnerId == ownerId).ToArray();
         }
 
         public List[] GetAllByGroupId(long groupId)
         {
-            return Context.Lists.Where(l => l.GroupId == groupId).ToArray();
+            return Context.Lists
+                .Include(x => x.Items)
+                .Where(l => l.GroupId == groupId).ToArray();
         }
     }
 }
