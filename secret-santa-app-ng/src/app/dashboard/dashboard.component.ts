@@ -20,11 +20,11 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.userService.currentUser.subscribe((user: User) => {
       this.currentUser = user;
-    });
 
-    this.groupService.getAllByUserId(this.currentUser.id).subscribe(res => {
-      console.log(JSON.stringify(res));
-      this.groups = res;
+      this.groupService.getAllByUserId(this.currentUser.id).subscribe(res => {
+        console.log(JSON.stringify(res));
+        this.groups = res;
+      });
     });
   }
 
