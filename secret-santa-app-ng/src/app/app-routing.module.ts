@@ -24,6 +24,10 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
+    path: 'test',
+    component: TestComponent
+  },
+  {
     path: 'dashboard',
     component: DashboardComponent
   },
