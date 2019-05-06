@@ -1,22 +1,8 @@
-<div class="app">
+<div class="app" *ngFor="let group of groups">
   <div class="card">
     <div class="container">
-      <h4><b>Stratman Family Exchange 2019</b></h4> 
-      <p>Stratman Estate: Cottleville, MO</p> 
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="container">
-      <h4><b>Ward Family Exchange 2019</b></h4> 
-      <p>Ward Estate: St. Charles, MO</p> 
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="container">
-      <h4><b>Buenaventura Family Exchange 2019</b></h4> 
-      <p>Buenaventura Estate: O'Fallon, MO</p> 
+      <h4><b>{{group.description}}</b></h4> 
+      <p>{{group.listDeadline}}</p> 
     </div>
   </div>
 </div>
