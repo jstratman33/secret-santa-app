@@ -2,7 +2,8 @@
   <div class="card">
     <div class="container">
       <h4><b>{{group.description}}</b></h4> 
-      <p>{{group.listDeadline | date:'medium'}}</p> 
+      <p><i>Wish List Deadline</i>: {{group.listDeadline | date:'longDate'}} {{group.listDeadline | date:'shortTime'}}</p> 
+      <h5><b>Event Date</b>: {{group.exchangeTime | date:'longDate'}}</h5>  
     </div>
   </div>
 </div>
