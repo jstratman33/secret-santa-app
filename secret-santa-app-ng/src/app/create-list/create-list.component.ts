@@ -11,7 +11,7 @@ import { List } from '../models/list';
 })
 export class CreateListComponent implements OnInit {
   private WishList=[];
-  constructor(private GroupService: GroupService) {
+  constructor() {
     this.AddList();
    }
 
@@ -21,14 +21,6 @@ export class CreateListComponent implements OnInit {
     this.WishList.push({
       id: Date.now(),
       item: ""
-    });
-  }
-  SubmitForm(): void{
-    this.WishList.forEach(x=>{
-      const Items: List={
-        id: 0,
-        item: ""
-      };
     });
   }
 }
