@@ -9,7 +9,15 @@
   <h1>
     Create List Page:
   </h1> 
-  
+
+  Group Select:<br>
+  <select [(ngModel)]="member.Group">
+    <option *ngFor="let member of groupArray"
+    [value]="group.Value" [attr.selected]="member.Group==group.Text ? true : null">
+      {{group.Text}}
+    </option>
+  </select>
+
   <br>
 
   Wish List:<br>
