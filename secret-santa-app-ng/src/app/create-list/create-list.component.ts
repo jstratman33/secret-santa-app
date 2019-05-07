@@ -5,6 +5,7 @@ import { Group } from '../models/group';
 import { List } from '../models/list';
 import { ListService } from 'c:/Users/sward_000/Documents/SecretSantaWorkspace/secret-santa-app-ng/src/app/services/list.service'
 import { UserService } from '../services/user.service';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-create-list',
@@ -15,6 +16,7 @@ export class CreateListComponent implements OnInit {
   private WishList=[];
   currentUser: User=null;
   Groups: Group[]=[];
+  selectedGroup: number=-1;
   constructor(private listService: ListService,
     private userService: UserService,
     private groupService: GroupService) {
@@ -41,8 +43,8 @@ export class CreateListComponent implements OnInit {
           id: 0,
           ownerId: this.currentUser.id,
           santaId: 0,
-          groupId: this.groupId,
-          name: 'User\'s Wish List',
+          groupId: this.selectedGroup,
+          name: this.currentUser.name,
           isPrimary: true,
           items: [
             {

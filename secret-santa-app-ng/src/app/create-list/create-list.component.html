@@ -11,10 +11,10 @@
   </h1> 
 
   Group Select:<br>
-  <select [(ngModel)]="member.Group">
-    <option *ngFor="let member of groupArray"
-    [value]="group.Value" [attr.selected]="member.Group==group.Text ? true : null">
-      {{group.Text}}
+  <select [(ngModel)]="selectedGroup">
+    <option *ngFor="let group of Groups"
+    [value]="group.id">
+      {{group.description}}
     </option>
   </select>
 
