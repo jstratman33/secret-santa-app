@@ -34,11 +34,9 @@
           <li *ngIf="!isLoggedIn" class="nav-item">
             <a routerLink="/login" class="nav-link">Log In</a>
           </li>
-          <li *ngIf="isLoggedIn" class="nav-item">
-            <a routerLink="/profile" class="nav-link">
-              <i class="fas fa-user"></i> &nbsp;
-              {{user.name}}
-            </a>
+          <li *ngIf="isLoggedIn" class="nav-link">
+            <i class="fas fa-user"></i> &nbsp;
+            {{user.name}}
           </li>
         </ul>
       </div>
