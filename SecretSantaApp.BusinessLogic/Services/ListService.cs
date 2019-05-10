@@ -86,21 +86,25 @@ namespace SecretSantaApp.BusinessLogic.Services
 
         public void AssignListsToSantas(long groupId)
         {
-            var potentialLists = GetAllByGroup(groupId).ToList();
+            var groupLists = GetAllByGroup(groupId).ToList();
             var finished = false;
             while (!finished)
             {
-                foreach (var list in potentialLists)
+                foreach (var list in groupLists)
                 {
-                    var listPool = potentialLists
-                        .Where(x => x.Id != list.Id && x.OwnerId != list.Id && x.SantaId == 0).ToArray();
+                    var listPool = groupLists
+                        .Where(x => x.Id != list.Id && x.OwnerId != list.OwnerId && x.SantaId == 0).ToArray();
                     if (listPool.Length == 0) break;
                     var random = new Random();
                     var index = random.Next(listPool.Length);
                     var randomList = listPool[index];
-                    
+                    randomList.SantaId = list.Id;
                 }
+
+                finished = groupLists.All(x => x.SantaId != 0);
             }
+
+            _listRepository.SaveChanges();
         }
     }
 }
