@@ -54,7 +54,7 @@ const routes: Routes = [
     component: ViewSantaComponent
   },
   {
-    path: 'group-list',
+    path: 'group-list/:id',
     component: GroupListComponent
   },
   {

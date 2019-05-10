@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { List } from '../models/list';
+import { ListService } from '../services/list.service';
+import { UserService } from '../services/user.service';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-group-list',
@@ -7,9 +12,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GroupListComponent implements OnInit {
 
-  constructor() { }
+  private groupId: number;
+  private currentUser: User;
+  userLists: List[];
+
+  constructor(private route: ActivatedRoute,
+    private listService: ListService,
+    private userService: UserService) { }
 
   ngOnInit() {
+    this.groupId = +this.route.snapshot.paramMap.get('id');
+    this.userService.currentUser.subscribe((user: User) => {
+      this.currentUser = user;
+      this.listService.getAllByOwnerId(user.id);
+    });
   }
-
 }
