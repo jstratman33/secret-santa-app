@@ -20,6 +20,7 @@ import { EditListComponent } from './edit-list/edit-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ListService } from './services/list.service';
+import { GroupListComponent } from './group-list/group-list.component';
 
 const config = new AuthServiceConfig([
   {
@@ -52,7 +53,8 @@ export function provideConfig() {
     ViewListComponent,
     ViewSantaComponent,
     EditListComponent,
-    TestComponent
+    TestComponent,
+    GroupListComponent
   ],
   imports: [
     BrowserModule,
