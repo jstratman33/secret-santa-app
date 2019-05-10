@@ -41,4 +41,9 @@ export class ListService {
     const url = this.url + `/${id}`;
     return this.http.delete(url);
   }
+
+  assignSantas(groupId: number): Observable<any> {
+    const url = this.url + `/group/${groupId}/assign`;
+    return this.http.get(url);
+  }
 }

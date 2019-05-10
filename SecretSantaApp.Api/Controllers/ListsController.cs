@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.TagHelpers.Internal;
+using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
 using Newtonsoft.Json;
 using SecretSantaApp.Api.Models;
 using SecretSantaApp.BusinessLogic.Services.Interfaces;
@@ -114,6 +115,21 @@ namespace SecretSantaApp.Api.Controllers
             try
             {
                 _listService.Delete(id);
+                return Ok(new { Message = "Successful" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("group/{id}/assign")]
+        public IActionResult AssignSantas(long id)
+        {
+            try
+            {
+                _listService.AssignListsToSantas(id);
                 return Ok(new { Message = "Successful" });
             }
             catch (Exception ex)
