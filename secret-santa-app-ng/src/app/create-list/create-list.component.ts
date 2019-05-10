@@ -3,7 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { GroupService } from '../services/group.service';
 import { Group } from '../models/group';
 import { List } from '../models/list';
-import { ListService } from 'c:/Users/sward_000/Documents/SecretSantaWorkspace/secret-santa-app-ng/src/app/services/list.service'
+import { ListService } from '../services/list.service';
 import { UserService } from '../services/user.service';
 import { User } from '../models/user';
 

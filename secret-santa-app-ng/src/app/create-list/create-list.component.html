@@ -10,14 +10,14 @@
     Create List Page:
   </h1> 
 
-  <!--Group Select:<br>
+  Group Select:<br>
   <select [(ngModel)]="selectedGroup">
     <option *ngFor="let group of Groups"
     [value]="group.id">
       {{group.description}}
     </option>
   </select>
-  -->
+  
   
   <br>
 
@@ -30,6 +30,6 @@
   <p>
 
   </p>
-  <button> Submit </button>
+  <button (click)="SubmitList()"> Submit </button>
 </div>
 </body>
