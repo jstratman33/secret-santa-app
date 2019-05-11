@@ -24,7 +24,7 @@ export class GroupListComponent implements OnInit {
     this.groupId = +this.route.snapshot.paramMap.get('id');
     this.userService.currentUser.subscribe((user: User) => {
       this.currentUser = user;
-      this.listService.getAllByOwnerId(user.id);
+      this.listService.getAllByOwnerId(user.id, this.groupId);
     });
   }
 }

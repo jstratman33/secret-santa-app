@@ -149,11 +149,11 @@ export class TestComponent implements OnInit {
     });
   }
 
-  getAllListsForOwner(): void {
-    this.listService.getAllByOwnerId(this.userId).subscribe(res => {
-      console.log(JSON.stringify(res));
-    });
-  }
+  // getAllListsForOwner(): void {
+  //   this.listService.getAllByOwnerId(this.userId).subscribe(res => {
+  //     console.log(JSON.stringify(res));
+  //   });
+  // }
 
   updateList(): void {
     const list: List = {

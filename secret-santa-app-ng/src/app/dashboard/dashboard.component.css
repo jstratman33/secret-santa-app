@@ -1,13 +1,16 @@
 a {
   width: 180px;
-  margin-top: 8px;
-  margin-right: 8px;
 }
 
 .header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  margin-top: 20px;
+  display: block;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 
 .app {
