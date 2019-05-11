@@ -6,6 +6,7 @@ import { List } from '../models/list';
 import { ListService } from '../services/list.service';
 import { UserService } from '../services/user.service';
 import { User } from '../models/user';
+import { ListItem } from '../models/list-item';
 
 @Component({
   selector: 'app-create-list',
@@ -13,7 +14,7 @@ import { User } from '../models/user';
   styleUrls: ['./create-list.component.css']
 })
 export class CreateListComponent implements OnInit {
-  private WishList=[];
+  private WishList: ListItem[]=[];
   currentUser: User=null;
   Groups: Group[]=[];
   selectedGroup: number=-1;
@@ -32,35 +33,24 @@ export class CreateListComponent implements OnInit {
     });
   }
   AddList(): void{
-     this.WishList.push({
-       id: Date.now(),
-       item: ""
+     this.WishList.push(<ListItem>{
+       id: 0,
+       description: ""
      });
   }
   SubmitList(): void{
-    this.WishList.forEach(x=>{
-      const List: List={
-          id: 0,
-          ownerId: this.currentUser.id,
-          santaId: 0,
-          groupId: this.selectedGroup,
-          name: this.currentUser.name,
-          isPrimary: true,
-          items: [
-            {
-              id: 0,
-              listId: 0,
-              description: x.item,
-              isPurchased: false
-            },
-            {
-              id: 0,
-              listId: 0,
-              description: x.item,
-              isPurchased: false
-            }
-          ]
-        }  
-    });
+    const List: List={
+        id: 0,
+        ownerId: this.currentUser.id,
+        santaId: 0,
+        groupId: this.selectedGroup,
+        name: this.currentUser.name,
+        isPrimary: true,
+        items: this.WishList
+    }
+    console.log(List);
+    this.listService.create(List).subscribe(res => {
+      console.log(JSON.stringify(res));
+    })  
   }
 }
