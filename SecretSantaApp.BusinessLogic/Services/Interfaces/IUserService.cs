@@ -8,5 +8,6 @@ namespace SecretSantaApp.BusinessLogic.Services.Interfaces
         User[] GetAll();
         User GetById(long id);
         User GetByEmailAddress(string emailAddress);
+        User GetBySocialId(string id);
     }
 }
