@@ -22,12 +22,14 @@ export class UserService {
   }
 
   handleUserLogin(user: SocialUser): void {
+    console.log("socilaUuser: ", user);
     const url = this.env.apiBaseUrl + '/api/users';
     const body = {
       EmailAddress: user.email,
       Name: user.name
     };
     this.http.post(url, body).subscribe((user: User) => {
+      console.log("postedUser: ", user);
       this.currentUserSubject.next(user);
     });
   }
