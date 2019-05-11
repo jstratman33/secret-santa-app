@@ -75,12 +75,12 @@ namespace SecretSantaApp.Api.Controllers
         }
 
         [HttpGet]
-        [Route("owner/{id}")]
-        public IActionResult GetByOwner(long id)
+        [Route("owner/{ownerId}/group/{groupId}")]
+        public IActionResult GetByOwner(long ownerId, long groupId)
         {
             try
             {
-                var lists = _listService.GetAllByOwner(id);
+                var lists = _listService.GetAllByOwner(ownerId, groupId);
                 var json = JsonConvert.SerializeObject(lists, Formatting.None,
                     new JsonSerializerSettings()
                     {
