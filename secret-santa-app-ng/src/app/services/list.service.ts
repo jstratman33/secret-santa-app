@@ -22,8 +22,8 @@ export class ListService {
     return this.http.get<List[]>(url);
   }
 
-  getAllByOwnerId(id: number): Observable<List[]> {
-    const url = this.url + `/owner/${id}`;
+  getAllByOwnerId(ownerId: number, groupId: number): Observable<List[]> {
+    const url = this.url + `/owner/${ownerId}/group/${groupId}`;
     return this.http.get<List[]>(url);
   }
 

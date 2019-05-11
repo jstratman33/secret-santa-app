@@ -25,9 +25,9 @@ namespace SecretSantaApp.BusinessLogic.Services
             _listRepository.Create(list);
         }
 
-        public List[] GetAllByOwner(long ownerId)
+        public List[] GetAllByOwner(long ownerId, long groupId)
         {
-            return _listRepository.GetAllByOwnerId(ownerId);
+            return _listRepository.GetAllByOwnerId(ownerId, groupId);
         }
 
         public List[] GetAllByGroup(long id)

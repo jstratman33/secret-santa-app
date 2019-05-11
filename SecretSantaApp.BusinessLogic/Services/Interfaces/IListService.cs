@@ -5,7 +5,7 @@ namespace SecretSantaApp.BusinessLogic.Services.Interfaces
     public interface IListService
     {
         void Create(List list);
-        List[] GetAllByOwner(long ownerId);
+        List[] GetAllByOwner(long ownerId, long groupId);
         List[] GetAllByGroup(long id);
         List GetOne(long id);
         void Update(List list);
