@@ -7,7 +7,7 @@ namespace SecretSantaApp.BusinessLogic.Services.Interfaces
 {
     public interface IGroupService
     {
-        void Create(Group group);
+        Group Create(Group group);
         Group[] GetAll();
         Group GetById(long id);
         Group[] GetAllByUser(long userId);

@@ -7,6 +7,7 @@ import { ListService } from '../services/list.service';
 import { UserService } from '../services/user.service';
 import { User } from '../models/user';
 import { ListItem } from '../models/list-item';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-list',
@@ -14,13 +15,14 @@ import { ListItem } from '../models/list-item';
   styleUrls: ['./create-list.component.css']
 })
 export class CreateListComponent implements OnInit {
-  private WishList: ListItem[]=[];
+  WishList: ListItem[]=[];
   currentUser: User=null;
   Groups: Group[]=[];
   selectedGroup: number=-1;
   constructor(private listService: ListService,
     private userService: UserService,
-    private groupService: GroupService) {
+    private groupService: GroupService,
+    private router: Router) {
     this.AddList();
    }
 
@@ -51,6 +53,7 @@ export class CreateListComponent implements OnInit {
     console.log(List);
     this.listService.create(List).subscribe(res => {
       console.log(JSON.stringify(res));
-    })  
+      this.router.navigateByUrl(`/group-list/${this.selectedGroup}`);
+    });
   }
 }

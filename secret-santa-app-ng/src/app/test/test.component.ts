@@ -29,11 +29,11 @@ export class TestComponent implements OnInit {
 
   createGroup(): void {
     const group: Group = {
-      id: 0,
-      adminId: this.userId,
-      description: 'Angular Test Group',
-      listDeadline: '2019-05-01',
-      exchangeTime: '2019-05-02'
+      Id: 0,
+      AdminId: this.userId,
+      Description: 'Angular Test Group',
+      ListDeadline: '2019-05-01',
+      ExchangeTime: '2019-05-02'
     };
     this.groupService.create(group).subscribe(res => {
       console.log(JSON.stringify(res));
@@ -54,11 +54,11 @@ export class TestComponent implements OnInit {
 
   updateGroup(): void {
     const group: Group = {
-      id: this.groupId,
-      adminId: this.userId,
-      description: 'updated Test Group',
-      listDeadline: '2019-05-15',
-      exchangeTime: '2019-05-18'
+      Id: this.groupId,
+      AdminId: this.userId,
+      Description: 'updated Test Group',
+      ListDeadline: '2019-05-15',
+      ExchangeTime: '2019-05-18'
     };
     this.groupService.update(group).subscribe(res => {
       console.log(JSON.stringify(res));

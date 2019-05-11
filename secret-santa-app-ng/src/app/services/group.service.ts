@@ -13,8 +13,8 @@ export class GroupService {
 
   constructor(private http: HttpClient) { }
 
-  create(group: Group): Observable<any> {
-    return this.http.post(this.url, group);
+  create(group: Group): Observable<Group> {
+    return this.http.post<Group>(this.url, group);
   }
 
   getAllByUserId(id: number): Observable<Group[]> {
@@ -28,7 +28,7 @@ export class GroupService {
   }
 
   update(group: Group): Observable<any> {
-    const url = this.url + `/${group.id}`;
+    const url = this.url + `/${group.Id}`;
     return this.http.put(url, group);
   }
 

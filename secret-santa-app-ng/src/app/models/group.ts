@@ -1,7 +1,7 @@
 export class Group {
-  id: number;
-  adminId: number;
-  description: string;
-  listDeadline: string;
-  exchangeTime: string;
+  Id: number;
+  AdminId: number;
+  Description: string;
+  ListDeadline: string;
+  ExchangeTime: string;
 }

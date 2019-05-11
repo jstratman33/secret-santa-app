@@ -5,3 +5,16 @@
     <a class="btn btn-primary" [routerLink]="['/create_kid_list']">Create Kid List</a>
   </p>
 </div>
+
+<div class="app" *ngFor="let list of userLists">
+  <div class="card">
+    <div class="container">
+      <h4><b>{{list.name}}</b></h4> 
+      <ul>
+        <li *ngFor="let item of list.items">
+          {{item.description}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
