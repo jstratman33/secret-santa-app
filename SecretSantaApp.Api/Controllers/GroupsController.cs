@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using SecretSantaApp.BusinessLogic.Services.Interfaces;
 using SecretSantaApp.EfCore.Enitities;
 
@@ -21,8 +22,13 @@ namespace SecretSantaApp.Api.Controllers
         {
             try
             {
-                _groupService.Create(group);
-                return Ok();
+                var newGroup = _groupService.Create(group);
+                var json = JsonConvert.SerializeObject(newGroup, Formatting.None,
+                    new JsonSerializerSettings()
+                    {
+                        ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                    });
+                return Ok(json);
             }
             catch (Exception ex)
             {
@@ -66,7 +72,12 @@ namespace SecretSantaApp.Api.Controllers
             try
             {
                 var groups = _groupService.GetAllByUser(userId);
-                return Ok(groups);
+                var json = JsonConvert.SerializeObject(groups, Formatting.None,
+                    new JsonSerializerSettings()
+                    {
+                        ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                    });
+                return Ok(json);
             }
             catch (Exception ex)
             {

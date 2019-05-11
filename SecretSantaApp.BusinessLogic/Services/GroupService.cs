@@ -14,10 +14,10 @@ namespace SecretSantaApp.BusinessLogic.Services
             _groupRepository = groupRepository;
         }
 
-        public void Create(Group group)
+        public Group Create(Group group)
         {
             _groupRepository.Create(group);
-            _groupRepository.SaveChanges();
+            return _groupRepository.GetById(group.Id);
         }
 
         public Group[] GetAll()

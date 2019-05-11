@@ -5,10 +5,10 @@
 
 <div class="app" *ngFor="let group of groups">
   <div class="card">
-    <div class="container" (click)="navigateToGroup(group.id)">
-      <h4><b>{{group.description}}</b></h4> 
-      <p><i>Wish List Deadline</i>: {{group.listDeadline | date:'longDate'}} {{group.listDeadline | date:'shortTime'}}</p> 
-      <h5><b>Event Date</b>: {{group.exchangeTime | date:'longDate'}}</h5>  
+    <div class="container" (click)="navigateToGroup(group.Id)">
+      <h4><b>{{group.Description}}</b></h4> 
+      <p><i>Wish List Deadline</i>: {{group.ListDeadline | date:'longDate'}} {{group.ListDeadline | date:'shortTime'}}</p> 
+      <h5><b>Event Date</b>: {{group.ExchangeTime | date:'longDate'}}</h5>  
     </div>
   </div>
 </div>

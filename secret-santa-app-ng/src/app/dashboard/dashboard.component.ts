@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit {
     this.userService.currentUser.subscribe((user: User) => {
       this.currentUser = user;
 
-      this.groupService.getAllByUserId(this.currentUser.id).subscribe(res => {
+      this.groupService.getAllByUserId(this.currentUser.id).subscribe((res: Group[]) => {
         console.log(JSON.stringify(res));
         this.groups = res;
       });

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService, GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider, SocialUser } from 'angularx-social-login';
 import { UserService } from '../services/user.service';
+import { Observable, from } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -19,9 +20,6 @@ export class LoginComponent implements OnInit {
     this.authService.authState.subscribe((user) => {
       this.user = user;
       this.loggedIn = (user != null);
-      if (this.loggedIn) {
-        this.userService.handleUserLogin(user);
-      }
     });
   }
 
@@ -30,7 +28,9 @@ export class LoginComponent implements OnInit {
   }
 
   signInWithFB(): void {
-    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+    from(this.authService.signIn(FacebookLoginProvider.PROVIDER_ID)).subscribe((socialUser: SocialUser) => {
+      this.userService.handleUserLogin(socialUser);
+    });
   }
 
   signInWithLinkedIn(): void {
