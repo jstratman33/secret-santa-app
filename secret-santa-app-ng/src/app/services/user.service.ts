@@ -30,6 +30,7 @@ export class UserService {
       name: user.name
     };
     this.http.post(url, body).subscribe((user: User) => {
+      console.log("postedUser: ", user);
       this.currentUserSubject.next(user);
     });
   }
