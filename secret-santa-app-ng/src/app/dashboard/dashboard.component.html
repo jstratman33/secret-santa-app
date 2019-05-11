@@ -1,3 +1,7 @@
+<div class="header">
+  <a class="btn btn-primary" [routerLink]="['/create_event_component']">Create Gift Exchange</a>
+</div>
+
 <div class="app" *ngFor="let group of groups">
   <div class="card">
     <div class="container" (click)="navigateToGroup(group.id)">

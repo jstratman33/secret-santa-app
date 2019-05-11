@@ -1,3 +1,15 @@
+a {
+  width: 180px;
+  margin-top: 8px;
+  margin-right: 8px;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .app {
     display: flex;
     flex-wrap: wrap;
