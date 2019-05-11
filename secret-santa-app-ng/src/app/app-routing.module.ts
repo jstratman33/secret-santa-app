@@ -9,6 +9,8 @@ import { ViewListComponent } from './view-list/view-list.component';
 import { ViewSantaComponent } from './view-santa/view-santa.component';
 import { EditListComponent } from './edit-list/edit-list.component';
 import { TestComponent } from './test/test.component';
+import { GroupListComponent } from './group-list/group-list.component';
+
 
 const routes: Routes = [
   {
@@ -50,6 +52,10 @@ const routes: Routes = [
   {
     path: 'view_santa',
     component: ViewSantaComponent
+  },
+  {
+    path: 'group-list/:id',
+    component: GroupListComponent
   },
   {
     path: 'edit_list',

@@ -1,6 +1,11 @@
+<div class="header">
+  <a class="btn btn-primary" [routerLink]="['/create_event']">Create Gift Exchange</a>
+  <h2> Your Gift Exchages</h2>
+</div>
+
 <div class="app" *ngFor="let group of groups">
   <div class="card">
-    <div class="container">
+    <div class="container" (click)="navigateToGroup(group.id)">
       <h4><b>{{group.description}}</b></h4> 
       <p><i>Wish List Deadline</i>: {{group.listDeadline | date:'longDate'}} {{group.listDeadline | date:'shortTime'}}</p> 
       <h5><b>Event Date</b>: {{group.exchangeTime | date:'longDate'}}</h5>  
