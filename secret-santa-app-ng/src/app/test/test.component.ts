@@ -150,7 +150,7 @@ export class TestComponent implements OnInit {
   }
 
   getAllListsForOwner(): void {
-    this.listService.getAllByOwnerId(this.userId).subscribe(res => {
+    this.listService.getAllByOwnerId(this.userId, this.groupId).subscribe(res => {
       console.log(JSON.stringify(res));
     });
   }

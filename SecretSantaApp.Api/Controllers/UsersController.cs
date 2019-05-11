@@ -19,16 +19,17 @@ namespace SecretSantaApp.Api.Controllers
         [HttpPost]
         public IActionResult HandleUserLogin(UserLoginRequest request)
         {
-            var existingUser = _userService.GetByEmailAddress(request.EmailAddress);
+            var existingUser = _userService.GetBySocialId(request.SocialId);
             if (existingUser != null) return Ok(existingUser);
 
             var user = new User
             {
+                SocialId = request.SocialId,
                 EmailAddress = request.EmailAddress,
                 Name = request.Name
             };
             _userService.Create(user);
-            var newUser = _userService.GetByEmailAddress(request.EmailAddress);
+            var newUser = _userService.GetBySocialId(request.SocialId);
             return Ok(newUser);
         }
     }

@@ -35,5 +35,10 @@ namespace SecretSantaApp.BusinessLogic.Services
         {
             return _userRepository.First(u => u.EmailAddress == emailAddress);
         }
+
+        public User GetBySocialId(string id)
+        {
+            return _userRepository.First(u => u.SocialId == id);
+        }
     }
 }
