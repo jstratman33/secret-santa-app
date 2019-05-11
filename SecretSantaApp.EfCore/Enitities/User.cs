@@ -11,7 +11,7 @@ namespace SecretSantaApp.EfCore.Enitities
         }
 
         public long Id { get; set; }
-        public string Username { get; set; }
+        public string SocialId { get; set; }
         public string EmailAddress { get; set; }
         public string Name { get; set; }
         public ICollection<Group> AdminOf { get; set; }
