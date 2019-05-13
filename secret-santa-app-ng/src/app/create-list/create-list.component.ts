@@ -36,19 +36,17 @@ export class CreateListComponent implements OnInit {
   }
   AddList(): void{
      this.WishList.push(<ListItem>{
-       id: 0,
-       description: ""
+       Id: 0,
+       Description: ""
      });
   }
   SubmitList(): void{
-    const List: List={
-        id: 0,
-        ownerId: this.currentUser.id,
-        santaId: 0,
-        groupId: this.selectedGroup,
-        name: this.currentUser.name,
-        isPrimary: true,
-        items: this.WishList
+    const List = <List>{
+        OwnerId: this.currentUser.id,
+        GroupId: this.selectedGroup,
+        Name: this.currentUser.name,
+        IsPrimary: true,
+        Items: this.WishList
     }
     console.log(List);
     this.listService.create(List).subscribe(res => {

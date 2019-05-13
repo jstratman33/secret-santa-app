@@ -111,24 +111,24 @@ export class TestComponent implements OnInit {
 
   createList(): void {
     const list: List = {
-      id: 0,
-      ownerId: this.userId,
-      santaId: 0,
-      groupId: this.groupId,
-      name: 'Jason\'s Wish List',
-      isPrimary: true,
-      items: [
+      Id: 0,
+      OwnerId: this.userId,
+      SantaId: 0,
+      GroupId: this.groupId,
+      Name: 'Jason\'s Wish List',
+      IsPrimary: true,
+      Items: [
         {
-          id: 0,
-          listId: 0,
-          description: '60 inch OLED 4K HDR TV',
-          isPurchased: false
+          Id: 0,
+          ListId: 0,
+          Description: '60 inch OLED 4K HDR TV',
+          IsPurchased: false
         },
         {
-          id: 0,
-          listId: 0,
-          description: 'ASUS ROG 17 inch Laptop',
-          isPurchased: false
+          Id: 0,
+          ListId: 0,
+          Description: 'ASUS ROG 17 inch Laptop',
+          IsPurchased: false
         }
       ]
     };
@@ -158,24 +158,24 @@ export class TestComponent implements OnInit {
 
   updateList(): void {
     const list: List = {
-      id: this.listId,
-      ownerId: this.userId,
-      santaId: 0,
-      groupId: this.groupId,
-      name: 'Jason\'s TEST Wish List',
-      isPrimary: true,
-      items: [
+      Id: this.listId,
+      OwnerId: this.userId,
+      SantaId: 0,
+      GroupId: this.groupId,
+      Name: 'Jason\'s TEST Wish List',
+      IsPrimary: true,
+      Items: [
         {
-          id: this.itemId,
-          listId: this.listId,
-          description: 'TEST 60 inch OLED 4K HDR TV',
-          isPurchased: true
+          Id: this.itemId,
+          ListId: this.listId,
+          Description: 'TEST 60 inch OLED 4K HDR TV',
+          IsPurchased: true
         },
         {
-          id: 0,
-          listId: this.listId,
-          description: 'Gibson Acoustic Guitar',
-          isPurchased: false
+          Id: 0,
+          ListId: this.listId,
+          Description: 'Gibson Acoustic Guitar',
+          IsPurchased: false
         }
       ]
     };

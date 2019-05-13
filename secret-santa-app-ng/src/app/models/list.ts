@@ -1,11 +1,11 @@
 import { ListItem } from './list-item';
 
 export class List {
-  id: number;
-  ownerId: number;
-  santaId: number;
-  groupId: number;
-  name: string;
-  isPrimary: boolean;
-  items: ListItem[];
+  Id: number;
+  OwnerId: number;
+  SantaId: number;
+  GroupId: number;
+  Name: string;
+  IsPrimary: boolean;
+  Items: ListItem[];
 }
