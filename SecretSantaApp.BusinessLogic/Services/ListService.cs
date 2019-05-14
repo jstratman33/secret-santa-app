@@ -90,6 +90,7 @@ namespace SecretSantaApp.BusinessLogic.Services
             var finished = false;
             while (!finished)
             {
+                groupLists.ForEach(x => x.SantaId = 0);
                 foreach (var list in groupLists)
                 {
                     var listPool = groupLists
@@ -98,7 +99,7 @@ namespace SecretSantaApp.BusinessLogic.Services
                     var random = new Random();
                     var index = random.Next(listPool.Length);
                     var randomList = listPool[index];
-                    randomList.SantaId = list.Id;
+                    groupLists.First(x => x.Id == randomList.Id).SantaId = list.Id;
                 }
 
                 finished = groupLists.All(x => x.SantaId != 0);
